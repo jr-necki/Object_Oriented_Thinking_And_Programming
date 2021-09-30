@@ -1,13 +1,15 @@
 package SeperationOfConcerns;
 
-public class Application {
-    public static void main(String[] args) {
-        Presentation presentation = new AddressbookPresentation(
-                new AddressbookBusinessLogic(
-                        new AdressbookDatabase()
-                )
-        );
-        String arg = "산본";
-        presentation.doPresentation(arg.length() > 0 ? arg: null);
+public abstract class Application {
+    public static void main(String[] args) throws Exception {
+        String path = "SeperationOfConcerns.";
+        String path2 = "AddressbookFor";
+        String args0 = "YourCompany";
+        Application application = (Application)Class.forName(path2+args0).newInstance();
+        Presentation presentation = application.createPresentation();
+       
+        presentation.doPresentation("test");
     }
+
+    abstract public Presentation createPresentation();
 }

@@ -3,8 +3,17 @@ package SeperationOfConcerns;
 public class BusinessLogic {
     Database database;
 
-    public BusinessLogic(Database database) {
+    public void setDatabase(Database database) {
         this.database = database;
+    }
+
+    public Database getDatabase() {
+        if(database == null) throw new RuntimeException("DATABASE MUST BE NOT NULL!");
+        return database;
+    }
+
+    public BusinessLogic() {
+
     }
 
     public String doBusinessLogic(String arg) {

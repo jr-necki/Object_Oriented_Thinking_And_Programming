@@ -1,8 +1,8 @@
 package SeperationOfConcerns;
 
 public class AddressbookBusinessLogic extends BusinessLogic{
-    public AddressbookBusinessLogic(Database database) {
-        super(database);
+    public AddressbookBusinessLogic() {
+
     }
 
     @Override
